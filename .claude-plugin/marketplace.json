@@ -1,0 +1,42 @@
+{
+  "name": "nextscape-plugins",
+  "owner": {
+    "name": "Nextscape Inc."
+  },
+  "metadata": {
+    "description": "Nextscape が提供する Claude Code プラグイン集"
+  },
+  "plugins": [
+    {
+      "name": "marp-slide-nextscape",
+      "source": {
+        "source": "github",
+        "repo": "nextscape/marp-slide-nextscape"
+      },
+      "description": "Nextscapeテーマを使用したMarpスライド資料を作成するプラグイン。CSSテーマ、サンプル、画像素材、スライド作成スキルを含む。",
+      "keywords": [
+        "marp",
+        "slide",
+        "presentation",
+        "nextscape"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "ui-design-grounding",
+      "source": {
+        "source": "github",
+        "repo": "nextscape/ui-design-grounding"
+      },
+      "description": "UI/UXの設計・実装における判断軸と知識ベースを提供するプラグイン。設計、監査、スコアリング、最適化など18のスキルを含む。",
+      "keywords": [
+        "ui",
+        "ux",
+        "design",
+        "accessibility",
+        "frontend"
+      ],
+      "category": "design"
+    }
+  ]
+}

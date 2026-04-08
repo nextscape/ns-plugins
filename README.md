@@ -7,6 +7,7 @@ Nextscape 社が提供する Claude Code プラグインのマーケットプレ
 | プラグイン | 説明 |
 |-----------|------|
 | [marp-slide-nextscape](https://github.com/nextscape/marp-slide-nextscape) | Nextscape テーマの Marp スライド自動生成 |
+| [ui-design-grounding](https://github.com/nextscape/ui-design-grounding) | UI/UX 設計・実装の判断軸と知識ベース |
 
 ## セットアップ
 
@@ -19,7 +20,7 @@ claude plugin marketplace add nextscape/ns-plugins
 ### プラグインのインストール
 
 ```bash
-claude plugin install marp-slide-nextscape@nextscape-plugins
+claude plugin install ui-design-grounding@nextscape-plugins
 ```
 
 ### チームへの展開

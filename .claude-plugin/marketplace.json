@@ -37,6 +37,23 @@
         "frontend"
       ],
       "category": "design"
+    },
+    {
+      "name": "ns-skills",
+      "source": {
+        "source": "github",
+        "repo": "nextscape/ns-skills"
+      },
+      "description": "ネクストスケープ社内向けの Agent Skill 集。nslib.Mvc.ApiBuilder による WebAPI 開発、CSS 最適化、新規事業のアイデア発想（イノベーティブ・シンキング）、QMS 適合診断・デザインレビューなど5つのスキルを含む。",
+      "keywords": [
+        "nextscape",
+        "nslib",
+        "css",
+        "qms",
+        "innovation",
+        "skills"
+      ],
+      "category": "productivity"
     }
   ]
 }

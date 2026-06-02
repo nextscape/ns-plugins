@@ -8,6 +8,7 @@ Nextscape 社が提供する Claude Code プラグインのマーケットプレ
 |-----------|------|
 | [marp-slide-nextscape](https://github.com/nextscape/marp-slide-nextscape) | Nextscape テーマの Marp スライド自動生成 |
 | [ui-design-grounding](https://github.com/nextscape/ui-design-grounding) | UI/UX 設計・実装の判断軸と知識ベース |
+| [ns-skills](https://github.com/nextscape/ns-skills) | 社内向け Agent Skill 集（nslib WebAPI 開発・CSS 最適化・新規事業発想・QMS 診断/DR） |
 
 ## セットアップ
 

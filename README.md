@@ -1,91 +1,39 @@
-# Nextscape Plugins
+# Nextscape Plugins（移行済み・アーカイブ）
 
-Nextscape 社が提供する Claude Code プラグインのマーケットプレイスです。
+> [!IMPORTANT]
+> このマーケットプレイスは **[`nextscape/ns-skills`](https://github.com/nextscape/ns-skills)** に統合されました。
+> 当リポジトリ（`nextscape/ns-plugins`）は新規のプラグイン追加を行いません。今後は ns-skills 側を参照してください。
 
-## 利用可能なプラグイン
+## 新しいマーケットプレイス
+
+```bash
+claude plugin marketplace add nextscape/ns-skills
+```
+
+`ns-skills` には、旧 `ns-plugins` が参照していたプラグイン（`marp-slide-nextscape` / `ui-design-grounding` / 旧 ns-skills バンドル）がすべて含まれ、さらに以下の粒度に分割・拡充されています。
 
 | プラグイン | 説明 |
 |-----------|------|
-| [marp-slide-nextscape](https://github.com/nextscape/marp-slide-nextscape) | Nextscape テーマの Marp スライド自動生成 |
-| [ui-design-grounding](https://github.com/nextscape/ui-design-grounding) | UI/UX 設計・実装の判断軸と知識ベース |
-| [ns-skills](https://github.com/nextscape/ns-skills) | 社内向け Agent Skill 集（nslib WebAPI 開発・CSS 最適化・新規事業発想・QMS 診断/DR） |
+| `ns-docs` | 資料作成スキル集（presentation-design / presentation-slides / html-spec-doc） |
+| `ns-qms` | QMS 適合診断（qms-align）・デザインレビュー支援（qms-dr） |
+| `ns-innovative-thinking` | 新規事業のアイデア発想・企画立案支援 |
+| `ns-css-optimization` | CSS の複雑化・肥大化を整理 |
+| `ns-bid-scout` | 受注可否の多角評価（BANT / Shipley / MEDDPICC ＋ BSC） |
+| `ns-d365bc` | D365 Business Central 統合 MCP（読み取り専用）＋業務知見ツール |
+| `nslib-core` | nslib.Mvc.ApiBuilder による .NET 8 WebAPI 開発キット |
+| `ui-design-grounding` | UI/UX 設計・実装の判断軸と知識ベース（18 スキル） |
+| `marp-slide-nextscape` | Nextscape テーマの Marp スライド自動生成 |
 
-## セットアップ
+## 既存利用者の移行手順
 
-### マーケットプレイスの登録
-
-```bash
-claude plugin marketplace add nextscape/ns-plugins
-```
-
-### プラグインのインストール
-
-```bash
-claude plugin install ui-design-grounding@nextscape-plugins
-```
-
-### チームへの展開
-
-プロジェクトの `.claude/settings.json` に以下を追加すると、メンバーがマーケットプレイスを自動認識できます：
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "nextscape-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "nextscape/ns-plugins"
-      }
-    }
-  }
-}
-```
-
-## プラグインの管理
-
-プラグインの管理は Claude Code セッション内で `/plugin` と入力して開くインタラクティブ UI から行えます。
-
-### `/plugin` でできること
-
-| タブ | 操作 |
-|------|------|
-| **Installed** | インストール済みプラグインの一覧表示・有効化・無効化・アンインストール・更新 |
-| **Discover** | 登録済みマーケットプレイスからプラグインを検索・インストール |
-| **Marketplaces** | マーケットプレイスの追加・削除 |
-| **Errors** | プラグインの読み込みエラーや LSP サーバーの問題を確認 |
-
-### プラグインの自動更新
-
-Claude Code はセッション開始時にインストール済みプラグインの更新を自動チェックし、新しいバージョンがあればプロンプトで通知します。`/plugin` の Installed タブからも手動で更新できます。
-
-### インストールスコープ
-
-プラグインのインストール時にスコープを選択できます。
-
-| スコープ | 設定ファイル | 用途 |
-|---------|-----------|------|
-| `user` (デフォルト) | `~/.claude/settings.json` | 個人のすべてのプロジェクトで利用 |
-| `project` | `.claude/settings.json` | チームで共有（Git 管理） |
-| `local` | `.claude/settings.local.json` | プロジェクト固有・Git 対象外 |
-
-### CLI からの操作
-
-スクリプトや自動化で使う場合は、ターミナルから `claude plugin` コマンドも利用できます。
+旧マーケットプレイス（`nextscape-plugins`）を登録済みの場合は、以下で入れ替えてください。
 
 ```bash
-claude plugin install <plugin>@<marketplace> [--scope user|project|local]
-claude plugin update <plugin>@<marketplace>
-claude plugin uninstall <plugin>@<marketplace> [--keep-data]
-claude plugin enable <plugin>@<marketplace>
-claude plugin disable <plugin>@<marketplace>
-claude plugin marketplace add <owner>/<repo>
+# 新しいマーケットプレイスを登録
+claude plugin marketplace add nextscape/ns-skills
+
+# 旧マーケットプレイスを削除（任意）
+claude plugin marketplace remove nextscape-plugins
 ```
 
-### トラブルシューティング
-
-- `/plugin` の **Errors** タブでプラグインの読み込みエラーを確認できます
-- `claude --debug` でプラグイン読み込みの詳細ログを表示できます
-
-## プラグインの追加
-
-新しいプラグインを追加するには `.claude-plugin/marketplace.json` の `plugins` 配列にエントリを追加してください。
+プラグインの管理は Claude Code セッション内の `/plugin` UI、またはターミナルの `claude plugin` コマンドから行えます。
